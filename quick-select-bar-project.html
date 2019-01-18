@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style type="text/css">
+    * {
+      background: white;
+    }
+    
+    .box {
+      width: 700px;
+      height: 80px;
+      
+      background-color: lightblue;
+      
+      margin: auto; /*moves the bar to the center*/
+      border: 1px solid cyan;
+      box-shadow: 5px 4px cyan;
+      
+      position: relative;
+      top: 25px; /*PUSHED off the top*/
+    }
+
+    /*↓↓↓   all of these are similar in there code but is changed slightly
+    to create the different circles. Many of the comments in to
+    the first one(#logo1) applies to the rest.*/
+    #logo1 {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      border-radius: 70px;/*give the square a round shape to look like a circle*/
+      
+      background: blue;/*just in case if the webpage doesn't support radial grandient*/
+      /*↓   let the circle have the fading of the color to the center*/
+      background-image: radial-gradient(rgb(200, 200, 255), rgb(50, 100, 255)); 
+      margin-top: 3px; /*move the circle slightly down*/
+      border: 2px solid;
+      
+      position: absolute; /*allow the circle to follow the bar wherever the bar moves to*/
+      
+      /*↓   set the transition for transforming 
+      the circle when it is hovered(refer to its respected hover property)*/
+      transition: transform 1s;
+    }
+    #logo2 {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      border-radius: 70px; 
+      
+      background: red; 
+      background-image: radial-gradient(rgb(255, 200, 200), rgb(255, 50, 100));
+      border: 2px solid;
+      margin-top: 3px;
+      
+      position: absolute;
+      left: 80px; /* PUSHED off the left side by 80 pixels*/
+      
+      transition: transform 1s;
+    }
+    #logo3 {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      border-radius: 70px;
+      
+      background: green;
+      background-image: radial-gradient(rgb(200, 255, 200), rgb(50, 255, 100));
+      margin-top: 3px;
+      border: 2px solid;
+      
+      position: absolute;
+      left: 160px; /* PUSHED off the left side by 160 pixels*/
+      
+      transition: transform 1s;
+    }
+    
+    /*↓↓↓   these 3 hover allow the commands to activate only
+    when the circle is hovered over. Many of the comments in to
+    the first one(#logo1:hover) applies to the rest.*/
+    #logo1:hover {
+      /*↓   this 1sec animation will activate when it is hover after
+      being delayed by 0.3 sec*/
+      animation: logo1 1s linear 0.3s infinite normal;
+      
+      /*↓   these are the transition that is declared in their
+      respected id that makes the circle bigger and in the
+      front of all the circles*/
+      transform: scale(1.5);
+      z-index: 1;
+      
+      box-shadow: 2px 2px lightgray;
+    }
+    #logo2:hover {
+      animation: logo2 1s linear 0.3s infinite normal;
+      
+      transform: scale(1.5);
+      z-index: 1;
+      
+      box-shadow: 2px 2px lightgray;
+    }
+    #logo3:hover {
+      animation: logo3 1s linear 0.3s infinite normal;
+      
+      transform: scale(1.5);
+      z-index: 1;
+      
+      box-shadow: 2px 2px lightgray;
+    }
+    
+    /*↓↓↓   These are what kind of animation the circle is doing*/
+    @keyframes logo1 {
+      from{opacity: 0.4;}
+      to{opacity: 1;}
+    }
+    
+    @keyframes logo2 {
+      from{opacity: 0.4;}
+      to{opacity: 1;}
+    }
+    
+    @keyframes logo3 {
+      from{opacity: 0.4;}
+      to{opacity: 1;}
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!--this allows the bar and the circles to appear on screen-->
+  <div class="box">
+    <div id="logo1"></div>
+    <div id="logo2"></div>
+    <div id="logo3"></div>
+
+    </div>
+  </div>
+</body>
+
+</html>
